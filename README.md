@@ -1,7 +1,7 @@
 # Tugboat
 Docker utility container for Graylog server and plugin development
 
-This container provides `graylog-project`, `javac` and `mvn` utilities needed for Graylog 6.1 development, packaged on an Ubuntu base. This container
+This container provides `graylog-project`, `javac` and `mvn` utilities needed for Graylog 6.1 plugin development, packaged on an Ubuntu base. This container
 is not designed to run as a daemon -- instead it executes a single command (using the current working directory) and then stops and removes itself.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/robfromboulder/tugboat/badge)](https://www.codefactor.io/repository/github/robfromboulder/tugboat)
@@ -15,7 +15,7 @@ is not designed to run as a daemon -- instead it executes a single command (usin
 * Docker for Linux (ARM 64-bit CPU or Intel 64-bit CPU)
 
 
-## Installation
+## Installing Tugboat
 
 Define a bash alias:
 ```bash
@@ -26,7 +26,7 @@ alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 --rm -it r
 ⚠️ When using Docker Desktop on Mac, it's necessary to add virtual file shares (in Settings|Resources|File sharing), or tugboat will fail to run properly.
 
 
-## Using Utility Programs
+## Using Tugboat
 
 Use Graylog CLI:
 ```bash
