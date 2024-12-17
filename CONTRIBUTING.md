@@ -1,4 +1,4 @@
-# Contributing to robfromboulder/tugboat
+# Contributing to Tugboat
 
 ## Building Local Containers
 
