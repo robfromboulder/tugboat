@@ -1,4 +1,4 @@
-# tugboat
+# Tugboat
 Docker utility container for Graylog server and plugin development
 
 This container provides `graylog-project`, `javac` and `mvn` utilities needed for Graylog 6.1 development, packaged on an Ubuntu base. This container
