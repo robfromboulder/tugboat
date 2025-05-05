@@ -1,8 +1,9 @@
 # Tugboat
-Docker [utility container](https://www.thefullstackjunkie.com/blog/docker-utility-container) for Graylog server and plugin development
+Docker [utility container](https://www.thefullstackjunkie.com/blog/docker-utility-container) for Graylog plugin development
 
-This container provides `graylog-project`, `javac` and `mvn` utilities needed for Graylog 6.2 plugin development, packaged on an Ubuntu base. This container
-is not designed to run as a daemon -- instead it executes a single command (using the current working directory) and then stops and removes itself.
+This container provides the **right versions** of `graylog-project`, `javac` and `mvn` utilities for Graylog 6.2 plugin development,
+without dedicating your workstation to this purpose. This container is not designed to run as a daemon -- instead it executes a
+single command (using the current working directory) and then stops and removes itself.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/robfromboulder/tugboat/badge)](https://www.codefactor.io/repository/github/robfromboulder/tugboat)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/robfromboulder/tugboat/blob/v6.2.x/CONTRIBUTING.md)
@@ -31,6 +32,11 @@ alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 --rm -it r
 Use Graylog CLI:
 ```bash
 tugboat graylog-project version
+```
+
+Use javac:
+```bash
+tugboat javac --version
 ```
 
 Use maven:
