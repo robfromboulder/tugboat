@@ -2,7 +2,7 @@
 Docker [utility container](https://www.thefullstackjunkie.com/blog/docker-utility-container) for Graylog plugin development
 
 This container provides the **right versions** of `graylog-project`, `javac` and `mvn` utilities for Graylog 6.2 plugin development,
-without dedicating your workstation to this purpose. This container is not designed to run as a daemon -- instead it executes a
+without dedicating your workstation to this purpose. This container is not designed to run as a server or daemon -- instead it executes a
 single command (using the current working directory) and then stops and removes itself.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/robfromboulder/tugboat/badge)](https://www.codefactor.io/repository/github/robfromboulder/tugboat)
