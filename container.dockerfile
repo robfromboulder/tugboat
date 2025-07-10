@@ -1,5 +1,5 @@
 ARG VERSION
-FROM ubuntu:jammy-20250404
+FROM ubuntu:jammy-20250619
 ARG VERSION
 ENV CONTAINER_VERSION=$VERSION
 
@@ -14,10 +14,10 @@ RUN echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/a
 RUN apt update && apt install --no-install-recommends -y git temurin-17-jdk wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install Graylog CLI
-RUN wget --progress=bar:force "https://github.com/Graylog2/graylog-project-cli/releases/download/0.48.0/graylog-project.linux" && chmod +x graylog-project.linux && mv graylog-project.linux /usr/bin/graylog-project
+RUN wget --progress=bar:force "https://github.com/Graylog2/graylog-project-cli/releases/download/0.50.0/graylog-project.linux" && chmod +x graylog-project.linux && mv graylog-project.linux /usr/bin/graylog-project
 
 # install Maven
-RUN cd /opt && wget --progress=bar:force "https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz" -O - | tar -xzvf -
+RUN cd /opt && wget --progress=bar:force "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.tar.gz" -O - | tar -xzvf -
 ENV PATH=/opt/apache-maven-3.9.6/bin:$PATH
 
 # create working directory
