@@ -16,7 +16,7 @@ Build local container:
 
 * Update `container.dockerfile` when new Ubuntu base versions become available
 * Let `apt update` and `apt upgrade` do the heavy lifting
-* Scan the container image: `trivy image tugboat:6.2.0`
+* Scan the container image: `trivy image tugboat:6.3.0`
 
 ## GitHub Workflow
 
@@ -32,8 +32,8 @@ This workflow allows you to easily create your own copy of tugboat, try out some
 
 ## Container Versioning
 
-* Your local builds will always be versioned `6.2.0` (and this is assumed by build scripts)
-* Public release numbers use the installed Graylog version and a patch version like this: `6.2.beta1` (for 1st beta) or `6.2.0c` (for 3rd build of 6.2.0) 
+* Your local builds will always be versioned `6.3.0` (and this is assumed by build scripts)
+* Public release numbers use the installed Graylog version and a patch version like this: `6.3.beta1` (for 1st beta) or `6.3.0c` (for 3rd build of 6.3.0) 
 * This makes it easy to identify what version of Graylog is bundled, and reduces chance of confusing local and public builds
 
 ## Release Process
@@ -49,13 +49,13 @@ docker buildx use mybuilder
 
 Build and push containers:
 ```bash
-./packagex.sh 6.2.(BUILD_NUMBER)(BUILD_LETTER)
+./packagex.sh 6.3.(BUILD_NUMBER)(BUILD_LETTER)
 ```
 
 Update version number shown in README and commit this change.
 
 Add release tag:
 ```bash
-git tag 6.2.(BUILD_NUMBER)(BUILD_LETTER)
-git push origin v6.2.x --tags
+git tag 6.3.(BUILD_NUMBER)(BUILD_LETTER)
+git push origin v6.3.x --tags
 ```

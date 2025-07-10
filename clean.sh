@@ -5,6 +5,6 @@
 docker stop tugboat
 docker rm tugboat
 docker volume rm tugboat
-docker image rm -f tugboat:6.2.0
+docker image rm -f tugboat:6.3.0
 docker system prune -f
 docker builder prune -f
