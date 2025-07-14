@@ -20,11 +20,12 @@ single command (using the current working directory) and then stops and removes 
 
 Define a bash alias:
 ```bash
-alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh:ro --rm -it robfromboulder/tugboat:6.3.0a'
+alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh:ro --rm -it robfromboulder/tugboat:6.3.0b'
 ```
-👆 This maps the current working directory into the container, while using your Maven cache to minimize downloads.
+👆 This maps the current working directory into the container, while using your existing SSH keys for authentication and Maven cache to minimize downloads.
 
-⚠️ When using Docker Desktop on Mac, it's necessary to add virtual file shares (in Settings|Resources|File sharing), or tugboat will fail to run properly.
+⚠️ When using Docker Desktop on Mac, add virtual file shares for your project directories, maven cache, and SSH keys, or tugboat will fail to run.
+<p><img src="virtual-file-shares-on-mac.png" width="50%"></p>
 
 
 ## Using Tugboat
