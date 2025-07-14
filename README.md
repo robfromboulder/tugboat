@@ -20,7 +20,7 @@ single command (using the current working directory) and then stops and removes 
 
 Define a bash alias:
 ```bash
-alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 --rm -it robfromboulder/tugboat:6.3.0a'
+alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh:ro --rm -it robfromboulder/tugboat:6.3.0a'
 ```
 👆 This maps the current working directory into the container, while using your Maven cache to minimize downloads.
 
@@ -42,4 +42,14 @@ tugboat javac --version
 Use maven:
 ```bash
 tugboat mvn --version
+```
+
+Use python:
+```bash
+tugboat python3 --version
+```
+
+Use ssh:
+```bash
+tugboat ssh -V
 ```
