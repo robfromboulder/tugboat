@@ -18,11 +18,11 @@ single command (using the current working directory) and then stops and removes 
 
 ## Installing Tugboat
 
-Define a bash alias:
+Define a bash/zsh alias:
 ```bash
-alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh --rm -it robfromboulder/tugboat:6.3.0b'
+alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh --rm -it robfromboulder/tugboat:6.3.0c'
 ```
-👆 This maps the current working directory into the container, while using your existing SSH keys for authentication and Maven cache to minimize downloads.
+👆 Add this to `~/.bashrc` or `~/.zshrc` if you use tugboat frequently. This command maps the current working directory into the tugboat container, while using your existing SSH keys for authentication and Maven cache to minimize downloads.
 
 ⚠️ When using Docker Desktop on Mac, add virtual file shares for your project directories, maven cache, and SSH keys, or tugboat will fail to run.
 <p><img src="virtual-file-shares-on-mac.png" width="50%"></p>
@@ -54,3 +54,18 @@ Use ssh:
 ```bash
 tugboat ssh -V
 ```
+
+Use bash to run commands interactively:
+```bash
+tugboat bash
+```
+
+Use bash to run a single command:
+```bash
+tugboat bash -c "pwd"
+```
+
+
+# Tugboat Limitations
+
+* Only the current working directory and its children are available to a tugboat session. Any script that uses `cd ..` to go parent directories will end up in the container's root directories, instead of the parent directory on the host. The best workaround is to start tugboat from a common parent directory and then use `tugboat bash -c "cd blah && ..."` to move down into child directories.  
