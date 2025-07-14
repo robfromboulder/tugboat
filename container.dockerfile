@@ -3,8 +3,8 @@ FROM ubuntu:jammy-20250619
 ARG VERSION
 ENV CONTAINER_VERSION=$VERSION
 
-# Switch to Berkeley OCF mirror for updates, install curl and gnupg
-RUN sed -i 's|ports.ubuntu.com|mirrors.ocf.berkeley.edu|g' /etc/apt/sources.list && apt update && apt install --no-install-recommends -y ca-certificates curl gnupg wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && install -m 0755 -d /etc/apt/keyrings
+# Switch to Berkeley OCF mirror for updates, install helpful system utils
+RUN sed -i 's|ports.ubuntu.com|mirrors.ocf.berkeley.edu|g' /etc/apt/sources.list && apt update && apt install --no-install-recommends -y ca-certificates curl gnupg less nano wget && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/private/ssl-cert-snakeoil.key && install -m 0755 -d /etc/apt/keyrings
 
 # Add Adoptium repo for Temurin JDK
 RUN curl -fsSL https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /etc/apt/keyrings/adoptium.gpg && chmod a+r /etc/apt/keyrings/adoptium.gpg
