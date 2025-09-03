@@ -1,7 +1,7 @@
-#!/bin/bash
-docker stop tugboat
-docker rm tugboat
-docker volume rm tugboat
-docker image rm -f tugboat:6.3.0
-docker system prune -f
+#!/bin/bash -x
+
+# remove local containers & cached layers
+./clean.sh
+
+# build for multiple chipsets and push to DockerHub
 docker buildx build --platform linux/amd64,linux/arm64 --provenance=true --sbom=true --build-arg VERSION=$1 -f container.dockerfile -t robfromboulder/tugboat:$1 --no-cache --push .
