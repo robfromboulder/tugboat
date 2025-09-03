@@ -20,7 +20,7 @@ single command (using the current working directory) and then stops and removes 
 
 Define a bash/zsh alias:
 ```bash
-alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh --rm -it robfromboulder/tugboat:6.3.0c'
+alias tugboat='docker run -v $(pwd):/root/work -v $HOME/.m2:/root/.m2 -v $HOME/.ssh:/root/.ssh --rm -it robfromboulder/tugboat:6.3.0e'
 ```
 👆 Add this to `~/.bashrc` or `~/.zshrc` if you use tugboat frequently. This command maps the current working directory into the tugboat container, while using your existing SSH keys for authentication and Maven cache to minimize downloads.
 
