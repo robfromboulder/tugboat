@@ -69,3 +69,6 @@ tugboat bash -c "pwd"
 # Tugboat Limitations
 
 * Only the current working directory and its children are available to a tugboat session. Any script that uses `cd ..` to go parent directories will end up in the container's root directories, instead of the parent directory on the host. The best workaround is to start tugboat from a common parent directory and then use `tugboat bash -c "cd blah && ..."` to move down into child directories.  
+
+---
+<small>&copy; 2024-2025 Rob Dickinson (robfromboulder)</small>
