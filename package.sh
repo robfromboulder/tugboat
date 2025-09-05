@@ -9,4 +9,4 @@ docker rm tugboat
 docker image rm -f tugboat:6.3.0
 
 # build containers for native chipset
-docker build --build-arg VERSION=6.3.0 -f container.dockerfile -t tugboat:6.3.0 .
+docker build --no-cache --build-arg VERSION=6.3.0 -f container.dockerfile -t tugboat:6.3.0 .
